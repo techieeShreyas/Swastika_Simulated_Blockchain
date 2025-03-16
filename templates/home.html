@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Transplant System</title>
+</head>
+<body>
+    <h1>Welcome to the Heart Transplant System</h1>
+    <ul>
+        <li><a href="{{ url_for('recipient_form') }}">Register as Recipient</a></li>
+        <li><a href="{{ url_for('donor_form') }}">Register as Donor</a></li>
+        <li><a href="{{ url_for('view_chain', chain_name='donor') }}">View Donor Chain</a></li>
+        <li><a href="{{ url_for('view_chain', chain_name='recipient') }}">View Recipient Chain</a></li>
+        <li><a href="{{ url_for('view_chain', chain_name='transplant') }}">View Transplant Chain</a></li>
+        <li><a href="{{ url_for('login') }}">Hospital Login</a></li>
+        <li><a href="{{ url_for('register') }}">Hospital Registration</a></li>
+    </ul>
+
+    <h2>Search Blockchain</h2>
+    <form method="POST" action="{{ url_for('search') }}">
+        <label for="search_term">Search Term:</label>
+        <input type="text" id="search_term" name="search_term" required><br><br>
+
+        <label for="chain_name">Select Chain:</label>
+        <select id="chain_name" name="chain_name" required>
+            <option value="donor">Donor Chain</option>
+            <option value="recipient">Recipient Chain</option>
+            <option value="transplant">Transplant Chain</option>
+        </select><br><br>
+
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

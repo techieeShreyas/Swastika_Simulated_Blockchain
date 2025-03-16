@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipient Registration</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recipient Registration</h1>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+    <br><br>
+
+    <form method="POST">
+        <!-- Name Field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ request.form.name }}" required><br>
+        {% if errors.name %}
+            <span class="error">{{ errors.name }}</span><br>
+        {% endif %}
+
+        <!-- Age Field -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="{{ request.form.age }}" required><br>
+        {% if errors.age %}
+            <span class="error">{{ errors.age }}</span><br>
+        {% endif %}
+
+        <!-- Blood Type Field -->
+        <label for="blood_type">Blood Type:</label>
+        <input type="text" id="blood_type" name="blood_type" value="{{ request.form.blood_type }}" required><br>
+        {% if errors.blood_type %}
+            <span class="error">{{ errors.blood_type }}</span><br>
+        {% endif %}
+
+        <!-- Medical Urgency Field -->
+        <label for="medical_urgency">Medical Urgency:</label>
+        <input type="text" id="medical_urgency" name="medical_urgency" value="{{ request.form.medical_urgency }}" required><br>
+        {% if errors.medical_urgency %}
+            <span class="error">{{ errors.medical_urgency }}</span><br>
+        {% endif %}
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

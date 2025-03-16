@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View {{ chain_name }} Chain</title>
+</head>
+<body>
+    <h1>{{ chain_name }} Chain</h1>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+    <ul>
+        {% for block in blocks %}
+            <li>
+                <strong>Block {{ block.index }}</strong><br>
+                Hash: {{ block.hash }}<br>
+                Previous Hash: {{ block.previous_hash }}<br>
+                Data: {{ block.data }}<br>
+                Timestamp: {{ block.timestamp }}
+            </li>
+        {% else %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
